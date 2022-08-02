@@ -22,10 +22,7 @@ export default ({ command, mode }: { command: any; mode: any }) => {
       Components({
         resolvers: [ElementPlusResolver()],
       }),
-    ],
-    css: {
-      postcss: {},
-    },
+    ], 
     resolve: {
       alias: {
         '@': resolve(__dirname, 'src'),
