@@ -1,5 +1,6 @@
 <template>
   <canvas ref="threeRef" width="1200" height="900"></canvas>
+  <button class="bg-red-500 hover:bg-red-700">Hover me</button>
 </template>
 
 <script lang="ts" setup>

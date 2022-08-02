@@ -3,6 +3,8 @@ import { defineConfig, loadEnv } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
 import AutoImport from 'unplugin-auto-import/vite';
+import Components from 'unplugin-vue-components/vite';
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
 
 // https://vitejs.dev/config/
 export default ({ command, mode }: { command: any; mode: any }) => {
@@ -15,8 +17,15 @@ export default ({ command, mode }: { command: any; mode: any }) => {
       AutoImport({
         imports: ['vue', 'vue-router'], // 需要自动引入api的库
         dts: resolve(__dirname, 'src/auto-import.d.ts'),
+        resolvers: [ElementPlusResolver()],
+      }),
+      Components({
+        resolvers: [ElementPlusResolver()],
       }),
     ],
+    css: {
+      postcss: {},
+    },
     resolve: {
       alias: {
         '@': resolve(__dirname, 'src'),
